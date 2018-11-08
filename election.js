@@ -14,10 +14,10 @@ module.exports = function (context, req, res) {
             const dom = new JSDOM(body);
             const rows = dom.window.document.querySelectorAll('.grid-row')
             
-            var repCount = rows[0].querySelector('span').textContent
+            var repCount = parseInt(rows[0].querySelector('span').textContent)
             var repPercent = rows[0].querySelector('.progressbar').textContent
 
-            var demCount = rows[1].querySelector('span').textContent
+            var demCount = parseInt(rows[1].querySelector('span').textContent)
             var demPercent = rows[1].querySelector('.progressbar').textContent
 
             var diffCount = Math.abs(repCount - demCount)
