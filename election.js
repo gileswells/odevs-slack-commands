@@ -27,7 +27,7 @@ module.exports = function (context, req, res) {
             
             output += 'DeSantis - ' + repPercent + ' - ' + repCount + "\n"
             output += 'Gillum - ' + demPercent + ' - ' +  demCount + "\n"
-            output += 'Difference - ' + diffPercent + ' - ' + diffCount 
+            output += 'Difference - ' + diffPercent + '% - ' + diffCount 
             
 
             res.writeHead(200, {'Content-Type': 'application/json'});

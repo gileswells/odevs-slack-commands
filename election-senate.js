@@ -25,7 +25,7 @@ module.exports = function (context, req, res) {
             var output = '';
             output += 'Scott - ' + repPercent + ' - ' + repCount + "\n"
             output += 'Nelson - ' + demPercent + ' - ' +  demCount + "\n"
-            output += 'Difference - ' + diffPercent + ' - ' + diffCount 
+            output += 'Difference - ' + diffPercent + '% - ' + diffCount 
 
             res.writeHead(200, {'Content-Type': 'application/json'});
             res.end(JSON.stringify({
