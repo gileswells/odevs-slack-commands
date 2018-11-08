@@ -23,9 +23,9 @@ module.exports = function (context, req, res) {
             var diffPercent = ((diffCount / (repCount + demCount))*100).toFixed(2)
 
             var output = '';
-            output += 'Scott - ' + repPercent + ' - ' + repCount + "\n"
-            output += 'Nelson - ' + demPercent + ' - ' +  demCount + "\n"
-            output += 'Difference - ' + diffPercent + '% - ' + diffCount 
+            output += 'Scott - ' + repPercent + ' - ' + repCount.toLocaleString('us') + "\n"
+            output += 'Nelson - ' + demPercent + ' - ' +  demCount.toLocaleString('us') + "\n"
+            output += 'Difference - ' + diffPercent + '% - ' + diffCount.toLocaleString('us')
 
             res.writeHead(200, {'Content-Type': 'application/json'});
             res.end(JSON.stringify({
