@@ -13,9 +13,19 @@ module.exports = function (context, req, res) {
             const dom = new JSDOM(body);
             const rows = dom.window.document.querySelectorAll('.grid-row')
 
+            var repCount = rows[0].querySelector('span').textContent
+            var repPercent = rows[0].querySelector('.progressbar').textContent
+
+            var demCount = rows[1].querySelector('span').textContent
+            var demPercent = rows[1].querySelector('.progressbar').textContent
+
+            var diffCount = Math.abs(repCount - demCount)
+            var diffPercent = diffCount / (repCount + demCount)
+
             var output = '';
-            output += 'Scott - ' + rows[0].querySelector('.progressbar').textContent + ' - ' + rows[0].querySelector('span').textContent + "\n"
-            output += 'Nelson - ' + rows[1].querySelector('.progressbar').textContent + ' - ' + rows[1].querySelector('span').textContent
+            output += 'Scott - ' + repPercent + ' - ' + repCount + "\n"
+            output += 'Nelson - ' + demPercent + ' - ' +  demCount + "\n"
+            output +- 'Difference - ' + diffPercent + ' - ' + diffCount 
 
             res.writeHead(200, {'Content-Type': 'application/json'});
             res.end(JSON.stringify({
