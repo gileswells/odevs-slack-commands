@@ -13,14 +13,14 @@ module.exports = function (context, req, res) {
             const dom = new JSDOM(body);
             const rows = dom.window.document.querySelectorAll('.grid-row')
 
-            var repCount = parseInt(rows[0].querySelector('span').textContent)
+            var repCount = parseInt(rows[0].querySelector('span').textContent.replace(",", "").replace(",", ""))
             var repPercent = rows[0].querySelector('.progressbar').textContent
 
-            var demCount = parseInt(rows[1].querySelector('span').textContent)
+            var demCount = parseInt(rows[1].querySelector('span').textContent.replace(",", "").replace(",", ""))
             var demPercent = rows[1].querySelector('.progressbar').textContent
 
             var diffCount = Math.abs(repCount - demCount)
-            var diffPercent = (diffCount / (repCount + demCount)).toFixed(2)
+            var diffPercent = ((diffCount / (repCount + demCount))*100).toFixed(2)
 
             var output = '';
             output += 'Scott - ' + repPercent + ' - ' + repCount + "\n"
