@@ -21,7 +21,7 @@ module.exports = function (context, req, res) {
             var demPercent = rows[1].querySelector('.progressbar').textContent
 
             var diffCount = Math.abs(repCount - demCount)
-            var diffPercent = diffCount / (repCount + demCount)
+            var diffPercent = (diffCount / (repCount + demCount)).toFixed(2)
 
             var output = '';
             
