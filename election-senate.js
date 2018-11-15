@@ -23,7 +23,7 @@ module.exports = function (context, req, res) {
             var diffPercent = ((diffCount / (repCount + demCount))*100).toFixed(2)
 
             var output = '';
-            output += 'Scott - ' + repPercent + ' - ' + repCount + "\n"
+            output += 'Voldemort - ' + repPercent + ' - ' + repCount + "\n"
             output += 'Nelson - ' + demPercent + ' - ' +  demCount + "\n"
             output += 'Difference - ' + diffPercent + '% - ' + diffCount 
 
