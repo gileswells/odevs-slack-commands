@@ -4,7 +4,7 @@ var response_url;
 
 module.exports = function (context, req, res) {
     request(
-        'https://floridaelectionwatch.gov/FederalOffices/USSenator',
+        'https://floridaelectionwatch.gov/StateOffices/CommissionerOfAgriculture',
         function (error, response, body) {
             console.log('error:', error); // Print the error if one occurred
             console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
@@ -23,8 +23,8 @@ module.exports = function (context, req, res) {
             var diffPercent = ((diffCount / (repCount + demCount))*100).toFixed(2)
 
             var output = '';
-            output += 'Voldemort - ' + repPercent + ' - ' + repCount.toLocaleString('us') + "\n"
-            output += 'Nelson - ' + demPercent + ' - ' +  demCount.toLocaleString('us') + "\n"
+            output += 'Caldwell [R] - ' + repPercent + ' - ' + repCount.toLocaleString('us') + "\n"
+            output += 'Fried [D] - ' + demPercent + ' - ' +  demCount.toLocaleString('us') + "\n"
             output += 'Difference - ' + diffPercent + '% - ' + diffCount.toLocaleString('us')
 
             res.writeHead(200, {'Content-Type': 'application/json'});

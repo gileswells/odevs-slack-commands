@@ -13,7 +13,7 @@ module.exports = function (context, req, res) {
 
             const dom = new JSDOM(body);
             const rows = dom.window.document.querySelectorAll('.grid-row')
-            
+
             var repCount = parseInt(rows[0].querySelector('span').textContent.replace(",", "").replace(",", ""))
             var repPercent = rows[0].querySelector('.progressbar').textContent
 
@@ -24,11 +24,10 @@ module.exports = function (context, req, res) {
             var diffPercent = ((diffCount / (repCount + demCount))*100).toFixed(2)
 
             var output = '';
-            
-            output += 'DeSantis - ' + repPercent + ' - ' + repCount + "\n"
-            output += 'Gillum - ' + demPercent + ' - ' +  demCount + "\n"
-            output += 'Difference - ' + diffPercent + '% - ' + diffCount 
-            
+
+            output += 'DeSantis - ' + repPercent + ' - ' + repCount.toLocaleString('us') + "\n"
+            output += 'Gillum - ' + demPercent + ' - ' +  demCount.toLocaleString('us') + "\n"
+            output += 'Difference - ' + diffPercent + '% - ' + diffCount.toLocaleString('us')
 
             res.writeHead(200, {'Content-Type': 'application/json'});
             res.end(JSON.stringify({
